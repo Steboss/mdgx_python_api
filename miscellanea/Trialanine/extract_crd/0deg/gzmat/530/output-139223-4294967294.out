@@ -1,0 +1,29 @@
+slurmstepd: *** JOB 139223 CANCELLED AT 2016-07-05T10:14:19 *** on node012
+Error: software termination
+   rax 000000000000012b, rbx 0000000000000b0a, rcx 00002b5efa873d18
+   rdx 00002b5efa90be70, rsp 00007ffeee05f800, rbp 00007ffeee05f820
+Error: software termination
+   rsi 0000000000001614, rdi 00002b5efa818710, r8  000000000000108f
+   r9  00002b5efa8b8308, r10 0000000000000585, r11 00002b5efa7ff7f0
+   r12 00000000000000d2, r13 0000000000000bdc, r14 00000000000016e6
+   r15 00002b5efa916f10
+   rax fffffffffffffffc, rbx 00007ffcc2cfc690, rcx ffffffffffffffff
+   rdx 0000000000000000, rsp 00007ffcc2cfc658, rbp 0000000000000001
+   rsi 00007ffcc2cfc690, rdi 0000000000002d87, r8  00002b0a888756e0
+   r9  0000000000000000, r10 0000000000000000, r11 0000000000000246
+   r12 00007ffcc2cfc6b0, r13 0000000000000044, r14 0000000000000000
+   r15 00007ffcc2d00080
+  0  0xb0cf11  clc0mc_ + 0x2b71
+  0  0x2b0a88575b4c
+  1  0xb075db  calc0m_ + 0x16b
+  2  0xa538c5  prmint_ + 0x8a5
+  3  0x7c205f  prmzon_ + 0x143f
+  4  0x7a4478  prismc_ + 0x7838
+  5  0x65af75  coulsu_ + 0x31f5
+  6  0x4cb12e  fofcou_ + 0xd82e
+  7  0x4d3bfc  fofjk_ + 0x159c
+  8  0x4bb0ac  fof2e_ + 0x11cc
+  9  0x419d8d  cycopn_ + 0x65bd
+  10  0x40da13  uhfopn_ + 0xa2e3
+  11  0x403710  MAIN_ + 0xb0
+  12  0x403648

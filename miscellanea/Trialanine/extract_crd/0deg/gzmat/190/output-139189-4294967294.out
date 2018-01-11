@@ -1,0 +1,14 @@
+Error: segmentation violation
+   rax 0000000000000000, rbx ffffffffffffffff, rcx ffffffffffffffff
+   rdx 000000000000203b, rsp 00007fff4cf8f498, rbp 00007fff4cf8fa70
+   rsi 000000000000000b, rdi 000000000000203b, r8  00002b1edd1ed300
+   r9  0000000000000000, r10 00007fff4cf8f260, r11 0000000000000202
+   r12 0000000000000000, r13 0000000000000000, r14 00007fff4cf8fab8
+   r15 0000000000001cdc
+  0  0x2b1edd93afb7
+  1  0x458935  lnk1e_ + 0x225
+  2  0x453420  gauerr_ + 0x80
+  3  0x406547  alldun_ + 0x2e17
+  4  0x403710  MAIN_ + 0xb0
+  5  0x403648
+Aborted (core dumped)

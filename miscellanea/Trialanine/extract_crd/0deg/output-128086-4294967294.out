@@ -1,0 +1,29 @@
+slurmstepd: *** JOB 128086 CANCELLED AT 2016-06-24T17:01:38 DUE TO TIME LIMIT on node003 ***
+Error: software termination
+Error: software termination
+   rax 00002b2d141bc520, rbx 00002b2d14120300, rcx 0000000000000220
+   rdx 00002b2d1410e6a0, rsp 00007ffe5a901c00, rbp 00007ffe5a901cf0
+   rsi 00002b2d14113100, rdi 00002b2d140f8d00, r8  00002b2d14128aa0
+   r9  00002b2d1410a960, r10 00002b2d14115400, r11 00002b2d140ffa60
+   r12 00002b2d14105f00, r13 00002b2d14119e60, r14 00002b2d140fb000
+   r15 00002b2d14124d60
+   rax fffffffffffffffc, rbx 00007ffdcc740150, rcx ffffffffffffffff
+   rdx 0000000000000000, rsp 00007ffdcc740118, rbp 0000000000000001
+   rsi 00007ffdcc740150, rdi 000000000000078c, r8  00002b883d5246e0
+   r9  0000000000000000, r10 0000000000000000, r11 0000000000000246
+   r12 00007ffdcc740170, r13 0000000000000043, r14 0000000000000000
+   r15 00007ffdcc743b40
+  0  0x2b883d224b4c
+  0  0xbae90e  dgstr_ + 0x163e
+  1  0x9caf0e  gobint_ + 0x13be
+  2  0x9b02da  gobb20_ + 0x72a
+  3  0x7b484e  prmdig_ + 0x69de
+  4  0x7a5114  prismc_ + 0x84d4
+  5  0x65af75  coulsu_ + 0x31f5
+  6  0x4cb12e  fofcou_ + 0xd82e
+  7  0x4d3bfc  fofjk_ + 0x159c
+  8  0x4bb0ac  fof2e_ + 0x11cc
+  9  0x419d8d  cycopn_ + 0x65bd
+  10  0x40da13  uhfopn_ + 0xa2e3
+  11  0x403710  MAIN_ + 0xb0
+  12  0x403648
