@@ -1,0 +1,4 @@
+The first step in MDGX is to create a number of conformations.
+this can be done with a python script, which generate top and crd files
+in this way we can have the total control of the input structures and
+their phase space
