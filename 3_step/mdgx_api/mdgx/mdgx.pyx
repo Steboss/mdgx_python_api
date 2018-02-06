@@ -86,48 +86,32 @@ def test_load(tname, cname):
     import numpy as np
 
     parm = pmd.load_file(tname, cname)
-    natom = len(parm.atoms) 
-
-
-    cdef TrajectoryControlData tcon
-    cdef PotentialFunction myu
-    cdef MolecularDynamicsSystem mys
-    cdef Coordinates coord_
-    cdef ambprmtop top    
-
-    cdef double[:] phenix_coords = parm.coordinates.flatten()
-    cdef double[:] target = np.zeros(10)
-    cdef double[:] gradients = np.zeros(natom*3)
+    natoms = len(parm.atoms) 
 
     #initialize the charge array
-    charge_array = np.zeros(natom)
+    charge_array = np.zeros(natoms)
 
-    for i in range(natom):
+    for i in range(natoms):
         charge_array[i]= parm.atoms[i].charge 
 
     #create the double* as a Memory view type
     cdef double[:] charge_view = charge_array
 
-    cdef double[:] charge_results = np.zeros(natom)
+    cdef double[:] charge_results = np.zeros(natoms)
 
-    tcon = create_trajcon_()
-    myu = load_topology_(tname, &tcon)
-    mys = create_mdsystem_(cname, &myu)
+    CpyDVec(&charge_view[0],natoms,&charge_results[0])
 
-    CpyDVec(&charge_view[0],natom,&charge_results[0])
+    #for i in range(natoms):
+    #    print(charge_results[i])
 
-    data = dict()
-    data["charges"] = np.asarray(charge_results)
+    #if we want we can return the memory slice as a dictionary
+    #data = dict()
+    #data["charges"] = np.asarray(charge_results)
 
+    #otherwise we return it  as a numpy array
+    data = np.asarray(charge_results)
     return data
 
-    #get_mdgx_force(&phenix_coords[0], &target[0], &gradients[0], &myu, &tcon, &mys)
-
-    #data = dict()
-    #data['energy'] = np.asarray(target)
-    #data['forces'] = np.asarray(gradients)
-
-    #return data
 
 if __name__ == '__main__':
     test_load('vAla3.prmtop', 'vAla3.rst7')
