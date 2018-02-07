@@ -6,7 +6,33 @@ cdef extern from "mdgx.h":
     ctypedef struct ambprmtop "prmtop":
         pass
         
-                
+    ctypedef struct pmeDirectControlData "dircon":
+        int LRvdw        
+        double Ecut    
+        double Vcut      
+        double Mcut    
+        double MaxDens  
+        double invMcut   
+        double invEcut    
+        double ewcoeff    
+        double sigma     
+        double Dtol   
+        double lkpspc
+    
+    ctypedef struct pmeRecipControlData "reccon":
+
+        int ordr[3]
+        int* ng
+        double S
+        int nlev
+        int nslab
+        int nstrip
+        int ggordr
+        int PadYZ[4]
+        double cfac[4]
+      
+
+
     ctypedef struct Coordinates "coord":
         int natom
         int isortho
@@ -274,11 +300,15 @@ cdef extern from "mdgx.h":
     PotentialFunction InitPotential(char* topsrc, double NBcut, trajcon* tj)
     void MMForceEnergy(PotentialFunction* U, MolecularDynamicsSystem* MD, TrajectoryControlData* tj)
 
-cdef extern from "cpydvec.c":
+cdef extern from "Vectors/cpydvec.c":
 
     double* CpyDVec(double* V, int n, double* C)
 
-cdef extern from "getmdgxfrc.c":
+cdef extern from "IO/initializer.c":
+
+    void dircon_reccon(pmeDirectControlData *dcinp, pmeRecipControlData *rcinp)
+
+cdef extern from "MD/getmdgxfrc.c":
     # use get_mdgx_force.c to include c source code
     # so we don't need to build .so file 
     int get_mdgx_force "getmdgxfrc" (const double *phenix_coords,

@@ -101,6 +101,7 @@ def test_load(tname, cname):
 
     CpyDVec(&charge_view[0],natoms,&charge_results[0])
 
+
     #for i in range(natoms):
     #    print(charge_results[i])
 
@@ -110,6 +111,52 @@ def test_load(tname, cname):
 
     #otherwise we return it  as a numpy array
     data = np.asarray(charge_results)
+    
+    
+    
+    #define recon and dircon
+    cdef pmeDirectControlData dcinp
+    cdef pmeRecipControlData rcinp
+    #call the initializer
+    dircon_reccon(&dcinp,&rcinp)
+    
+    cdef int[:] pmeRecip = rcinp.ordr
+    pmeRecip = np.asarray(pmeRecip)
+    for i in range(0,3):
+        print(pmeRecip[i])
+    #convert a int*  into python
+    #create an array view and explicitly say how long is the array
+    cdef int[::1] view = <int[:3]> rcinp.ng
+    view = np.asarray(view)
+    for i in range(0,3):
+        print(view[i])
+
+    cdef double S = rcinp.S 
+    print(S)
+    cdef int  nlev = rcinp.nlev
+    print(nlev)
+
+    cdef int[:] PadYZ = rcinp.PadYZ 
+    PadYZ = np.asarray(PadYZ)
+    for i in range(0, 4):
+        print(PadYZ[i])
+
+    
+    #view = np.asarray(view)
+    #print(view)
+    #print(rcinp.ordr)
+    #        int ordr[3]
+    #    int* ng
+    #    double S
+    #    int nlev
+    #    int nslab
+    #    int nstrip
+    #    int ggordr
+    #    int PadYZ[4]
+    #    double cfac[4]
+
+    #print direcon and reccon
+    
     return data
 
 

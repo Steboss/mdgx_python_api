@@ -27,7 +27,9 @@ ext = Extension(
         ["mdgx/mdgx.pyx",],
         libraries=['mdgx', 'netcdf',],
         library_dirs=["/home/steboss/Software/amber16/lib"],
-        include_dirs=["/home/steboss/Software/amber16/include"],
+        include_dirs=["/home/steboss/Software/amber16/include", "/home/steboss/Simulation/mdgx_python_api/pymdgx/2_readCommFile/mdgx/Vectors",\
+	              "/home/steboss/Simulation/mdgx_python_api/pymdgx/2_readCommFile/mdgx/MD",\
+                      "/home/steboss/Simulation/mdgx_python_api/pymdgx/2_readCommFile/mdgx/IO"],
         extra_compile_args=extra_compile_args,
         extra_link_args=extra_link_args,
         )
